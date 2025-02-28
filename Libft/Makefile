@@ -16,7 +16,7 @@ CFLAGS = -g -c -Wextra -Wall -Werror
 NAME = libft.a
 
 $(NAME) : $(OBJ)
-		ar -rcus $(NAME) $(OBJ)
+		ar -rc $(NAME) $(OBJ)
 
 .c.o:
 		$(CC) $(CFLAGS) $< -o $@
@@ -24,7 +24,7 @@ $(NAME) : $(OBJ)
 all : $(NAME)
 
 bonus : $(BONUSOBJ)
-		ar -rcus $(NAME) $(BONUSOBJ)
+		ar -rc $(NAME) $(BONUSOBJ)
 		touch $@
 
 clean :

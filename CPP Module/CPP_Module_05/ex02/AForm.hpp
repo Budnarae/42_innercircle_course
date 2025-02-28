@@ -20,6 +20,17 @@ class AForm
 		/* Orthodox Canonical Form(private part) */
 		AForm	&operator=(const AForm &rhv);
 	public	:
+		/* exception handler class */
+		class GradeTooHighException : public std::exception
+		{
+			public	:
+				virtual const char	*what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public	:
+				virtual const char	*what() const throw();
+		};
 		/* Orthodox Canonical Form(public part) */
 		AForm();
 		AForm(const AForm &cp);
@@ -34,23 +45,12 @@ class AForm
 		int				getGradeToSign() const;
 		int				getGradeToExecute() const;
 		void			inspectGradeRange(int gs, int ge) \
-			throw(GradeTooHighException, GradeTooLowException);
+			throw(AForm::GradeTooHighException, AForm::GradeTooLowException);
 		bool			isExecutable(int bureaucratGrade) const \
-			throw (GradeTooLowException);
-		void			beSigned(const Bureaucrat &b) throw(GradeTooLowException);
+			throw (AForm::GradeTooLowException);
+		void			beSigned(const Bureaucrat &b) throw(AForm::GradeTooLowException);
 		/* public pure virtual function */
 		virtual void	execute(Bureaucrat const &executor) const = 0;
-		/* exception handler class */
-		class GradeTooHighException : public std::exception
-		{
-			public	:
-				virtual const char	*what() const throw();
-		};
-		class GradeTooLowException : public std::exception
-		{
-			public	:
-				virtual const char	*what() const throw();
-		};
 };
 
 /* operator overloading */

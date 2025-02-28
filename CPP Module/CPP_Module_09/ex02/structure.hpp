@@ -1,6 +1,8 @@
 #ifndef STRUCTURE_HPP
 #define STRUCTURE_HPP
 
+#include <cstddef>
+
 struct RecursivePair
 {
 	int	depth;

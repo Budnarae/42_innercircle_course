@@ -13,8 +13,10 @@
 #ifndef PHILOSOPHERS_BONUS_H
 # define PHILOSOPHERS_BONUS_H
 
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/wait.h>
 # include <pthread.h>
 # include <semaphore.h>
 # include <unistd.h>

@@ -4,33 +4,38 @@ BONUS_SRC = main_bonus.c utils_bonus.c parse_fdf_bonus.c parse_fdf_2_bonus.c ini
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -g
-MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
+CFLAGS = -Wextra -Wall #-Werror
+MLXFLAGS = -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 LIBFTFLAGS = -Llibft/ -lft
 
 NAME = fdf
 
 $(NAME) : $(OBJ)
 		make -C ./libft/ all bonus
-		$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBFTFLAGS) -g -o $(NAME) $(OBJ) 
+		make -C ./mlx/ all
+		$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ) $(MLXFLAGS) $(LIBFTFLAGS)
 
-.c.o:
-		$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -O3 -c $< -o $@ -I/usr/include -Imlx
+
 
 all : $(NAME)
 
 bonus : $(BONUS_OBJ)
 		make -C ./libft/ all bonus
-		$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBFTFLAGS) -g -o $(NAME) $(BONUS_OBJ)
+		make -C ./mlx/ all
+		$(CC) $(CFLAGS) -g -o $(NAME) $(BONUS_OBJ) $(MLXFLAGS) $(LIBFTFLAGS)
 		touch $@
 
 clean :
 		rm -rf $(OBJ) $(BONUS_OBJ)
 		make -C ./libft/ clean
+		make -C ./mlx/ clean
 
 fclean :
 		rm -rf $(OBJ) $(BONUS_OBJ) $(NAME) bonus
 		make -C ./libft/ fclean
+		make -C ./mlx/ clean
 
 re : 
 		make fclean all

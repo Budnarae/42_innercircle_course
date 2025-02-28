@@ -1,6 +1,7 @@
 #ifndef CRAPPYPHONEBOOK_HPP
 #define CRAPPYPHONEBOOK_HPP
 
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 

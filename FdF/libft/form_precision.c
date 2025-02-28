@@ -51,8 +51,8 @@ int	form_precision_case_new_form(t_list_pt *cond, char **result, char *temp)
 	temp = *result;
 	if (temp[0] == '-')
 		cond->flag.precision_len += 1;
-		*result = (char *)ft_calloc(cond->flag.precision_len + 1,
-			sizeof(char));
+	*result = (char *)ft_calloc(cond->flag.precision_len + 1,
+		sizeof(char));
 	if (*result == 0)
 	{
 		free(temp);

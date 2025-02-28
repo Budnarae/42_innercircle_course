@@ -204,7 +204,7 @@ BitcoinExchange::BitcoinExchange(const string &inputFileName) \
 void	BitcoinExchange::printBitcoinTotalByDate() \
 	throw (InputFileOpenFailedException)
 {
-	std::ifstream	inputFile(inputFileName);
+	std::ifstream	inputFile(inputFileName.c_str());
 	if (inputFile.fail())
 		throw (BitcoinExchange::InputFileOpenFailedException());
 	

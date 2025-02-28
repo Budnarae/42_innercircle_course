@@ -19,19 +19,6 @@ class Form
 		/* Orthodox Canonical Form(private part) */
 		Form	&operator=(const Form &rhv);
 	public	:
-		/* Orthodox Canonical Form(public part) */
-		Form();
-		Form(const Form &cp);
-		~Form();
-		/* Constructor */
-		Form(const string &name, int gs, int ge) \
-			throw(GradeTooHighException, GradeTooLowException);
-		/* public member function */
-		const string	&getName() const;
-		bool			getSign() const;
-		int				getGradeToSign() const;
-		int				getGradeToExecute() const;
-		void			beSigned(const Bureaucrat &b) throw(GradeTooLowException);
 		/* exception handler class */
 		class GradeTooHighException : public std::exception
 		{
@@ -43,6 +30,19 @@ class Form
 			public	:
 				virtual const char	*what() const throw();
 		};
+		/* Orthodox Canonical Form(public part) */
+		Form();
+		Form(const Form &cp);
+		~Form();
+		/* Constructor */
+		Form(const string &name, int gs, int ge) \
+			throw(Form::GradeTooHighException, Form::GradeTooLowException);
+		/* public member function */
+		const string	&getName() const;
+		bool			getSign() const;
+		int				getGradeToSign() const;
+		int				getGradeToExecute() const;
+		void			beSigned(const Bureaucrat &b) throw(Form::GradeTooLowException);
 };
 
 /* operator overloading */

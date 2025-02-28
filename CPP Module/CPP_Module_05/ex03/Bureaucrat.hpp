@@ -19,20 +19,6 @@ class Bureaucrat
 		/* Orthodox Canonical Form(private part) */
 		Bureaucrat	&operator=(const Bureaucrat &rhv);
 	public	:
-		/* Orthodox Canonical Form(public part) */
-		Bureaucrat();
-		Bureaucrat(const Bureaucrat &cp);
-		~Bureaucrat();
-		/* Constructor */
-		Bureaucrat(int grade) throw(GradeTooHighException, GradeTooLowException);
-		Bureaucrat(const string &name, int grade) throw(GradeTooHighException, GradeTooLowException);
-		/* public member function */
-		const string	&getName() const;
-		int				getGrade() const;
-		void			incrementGrade() throw(GradeTooHighException);
-		void			decrementGrade() throw(GradeTooLowException);
-		bool			signForm(int grade_to_sign, const string &form_name) const;
-		void			executeForm(AForm const &form) const;
 		/* exception handler class */
 		class	GradeTooHighException : public std::exception
 		{
@@ -44,6 +30,20 @@ class Bureaucrat
 			public	:
 				virtual const char	*what() const throw();
 		};
+		/* Orthodox Canonical Form(public part) */
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &cp);
+		~Bureaucrat();
+		/* Constructor */
+		Bureaucrat(int grade) throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
+		Bureaucrat(const string &name, int grade) throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
+		/* public member function */
+		const string	&getName() const;
+		int				getGrade() const;
+		void			incrementGrade() throw(Bureaucrat::GradeTooHighException);
+		void			decrementGrade() throw(Bureaucrat::GradeTooLowException);
+		bool			signForm(int grade_to_sign, const string &form_name) const;
+		void			executeForm(AForm const &form) const;
 };
 
 #include "AForm.hpp"

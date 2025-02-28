@@ -30,7 +30,7 @@ NAME = minishell
 
 $(NAME) : $(OBJ)
 		make -sC ./libft/ all bonus
-		$(CC) $(CFLAGS) $(LIBFTFLAGS) $(READLINEFLAGS) -o $(NAME) $(OBJ) 
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFTFLAGS) $(READLINEFLAGS)
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $@
@@ -39,7 +39,7 @@ all : $(NAME)
 
 bonus : $(BONUS_OBJ)
 		make -sC ./libft/ all bonus
-		$(CC) $(CFLAGS) $(LIBFTFLAGS) $(READLINEFLAGS) -o $(NAME) $(BONUS_OBJ)
+		$(CC) $(CFLAGS) -o $(NAME) $(BONUS_OBJ) $(LIBFTFLAGS) $(READLINEFLAGS)
 		touch $@
 
 clean :

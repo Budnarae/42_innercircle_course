@@ -11,7 +11,7 @@ NAME = pipex
 
 $(NAME) : $(OBJ)
 		make -C ./libft/ all bonus
-		$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBFTFLAGS) -g -o $(NAME) $(OBJ) 
+		$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ) $(LIBFTFLAGS)
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $@
@@ -20,7 +20,7 @@ all : $(NAME)
 
 bonus : $(BONUS_OBJ)
 		make -C ./libft/ all bonus
-		$(CC) $(CFLAGS) $(MLXFLAGS) $(LIBFTFLAGS) -g -o $(NAME) $(BONUS_OBJ)
+		$(CC) $(CFLAGS) -g -o $(NAME) $(BONUS_OBJ) $(LIBFTFLAGS)
 		touch $@
 
 clean :

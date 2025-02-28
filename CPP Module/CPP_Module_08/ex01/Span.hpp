@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <algorithm>
 
 using std::cout;
 using std::endl;

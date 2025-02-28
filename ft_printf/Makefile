@@ -11,7 +11,7 @@ CFLAGS = -c -Wextra -Wall -Werror
 NAME = libftprintf.a
 
 $(NAME) : $(OBJ)
-		ar -rcus $(NAME) $(OBJ)
+		ar -rc $(NAME) $(OBJ)
 		make -f ./libft/Makefile all bonus
 
 .c.o:
@@ -20,7 +20,7 @@ $(NAME) : $(OBJ)
 all : $(NAME)
 
 bonus : $(BONUSOBJ)
-		ar -rcus $(NAME) $(BONUSOBJ)
+		ar -rc $(NAME) $(BONUSOBJ)
 		make -f ./libft/Makefile all bonus
 		touch $@
 

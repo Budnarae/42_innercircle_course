@@ -2,6 +2,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <ctime>
+#include <cstdlib>
 #include <unistd.h>
 #include "AForm.hpp"
 

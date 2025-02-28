@@ -13,24 +13,25 @@
 #ifndef FDF_BONUS_H
 # define FDF_BONUS_H
 # define PI 3.141592
-# define A 0
-# define D 2
-# define W 13
-# define S 1
-# define Q 12
-# define E 14
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define I 34
-# define J 38
-# define K 40
-# define L 37
-# define U 32
-# define O 31
-# define SPACE 49
+# define A 97
+# define D 100
+# define W 119
+# define S 115
+# define Q 113
+# define E 101
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define I 105
+# define J 106
+# define K 107
+# define L 108
+# define U 117
+# define O 111
+# define SPACE 32
 # define ISO 333
 # define CAB 222
+
 
 # include <mlx.h>
 # include <math.h>
