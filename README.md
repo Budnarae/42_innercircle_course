@@ -351,7 +351,7 @@ sudo apt install irssi
 
 ```shell
 
-./irssi
+irssi
 
 ```
 
