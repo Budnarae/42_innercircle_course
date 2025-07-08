@@ -63,6 +63,7 @@ t_col_info	check_col_all_co(t_vec3 ray_to_pixel, int co_num, t_cone *co)
 	int			i;
 
 	i = 0;
+	col = get_fake_col();
 	while (i < co_num)
 	{
 		rev_fi = get_rev_fi_matrix(co[i].center_pos, co[i].unit_vec);
