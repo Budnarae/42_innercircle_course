@@ -27,8 +27,7 @@ OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS_SRCS:.c=.o)
 
 CC:=cc
-#DEBUG:= -g -fsanitize=address
-CFLAGS:= -Wall -Wextra #-Werror
+CFLAGS:= -Wall -Wextra -Werror
 MFLAG:= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 LIBFT = libft/libft.a
 RM = rm -rf
@@ -39,7 +38,6 @@ all: $(NAME)
 bonus : BONUS 
 
 $(NAME): $(LIBFT) $(OBJS) $(INCS)
-	$(MAKE) -C ./mlx/ all
 	$(CC) $(DEBUG) $(OBJS) $(LIBFT) -o $(NAME) $(CFLAGS) $(MFLAG)
 	$(RM) BONUS
 
@@ -47,7 +45,6 @@ $(NAME): $(LIBFT) $(OBJS) $(INCS)
 	$(CC) $(CFLAGS) -O3 -c $< -o $@ -I/usr/include -Imlx
 
 BONUS: $(LIBFT) $(BNS_OBJS) $(BNS_INCS)
-	$(MAKE) -C ./mlx/ all
 	$(CC) $(DEBUG) $(CFLAGS) $(BNS_OBJS) $(LIBFT) $(MFLAG) -o $(NAME)
 	touch $@
 
@@ -59,12 +56,10 @@ $(LIBFT):
 
 clean:
 	$(RM) $(OBJS) $(BNS_OBJS) BONUS
-	$(MAKE) -C ./mlx/ clean
 	$(MAKE) -sC libft clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C ./mlx/ clean
 	$(MAKE) -sC libft fclean
 
 re: fclean all

@@ -57,13 +57,10 @@ t_vec3	shoot_ray_to_pixel(t_vec3 ray_to_pixel, t_factor *f, t_vars *vars)
 /** if (f->cam->fov < 1.0f) --> black screen! */
 void	raytracer(t_vars *vars, t_factor *f)
 {
-	t_vec3	up_left_pixel;
-
 	if (f->cam->fov < 1.0f)
 	{
 		black_screen(vars);
 		return ;
 	}
-	up_left_pixel = get_vec3(-1.0f, 1.0f, -get_focal_length(f->cam->fov));
 	distribute_to_thread(4, 4, vars, f);
 }
